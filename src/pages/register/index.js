@@ -6,7 +6,12 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity
 } from "react-native";
-import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import {
+  FontAwesome,
+  AntDesign,
+  MaterialCommunityIcons,
+  MaterialIcons
+} from "@expo/vector-icons";
 
 import background from "../../assests/background.png";
 import logo from "../../assests/image.png";
@@ -20,22 +25,29 @@ import {
   Input,
   ButtonEntrar,
   ButtonText,
-  ResetPassText,
-  CadastrarText
+  Title
 } from "./style";
 
-function Login() {
+function Register() {
   return (
     <Background source={background}>
       <Container behavior="padding">
-        <Logo source={logo} />
+        <View style={{ flexDirection: "row" }}>
+          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+          <Logo source={logo} />
+        </View>
+        <Title>CDU - CAMINHO DA UNIVERSIDADE</Title>
         <Form>
+          <FormInput>
+            <FontAwesome name="user-o" size={16} color="#000" />
+            <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
+          </FormInput>
           <FormInput>
             <MaterialCommunityIcons
               name="email-outline"
               size={16}
               color="#000"
-            />{" "}
+            />
             <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
           </FormInput>
           <FormInput>
@@ -47,18 +59,12 @@ function Login() {
             />
           </FormInput>
           <ButtonEntrar>
-            <ButtonText>ENTRAR</ButtonText>
+            <ButtonText>CADASTRAR</ButtonText>
           </ButtonEntrar>
-          <TouchableOpacity activeOpacity={0.7}>
-            <ResetPassText>esqueceu senha</ResetPassText>
-          </TouchableOpacity>
         </Form>
-        <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
-          <CadastrarText>Solicite seu cadastro, aqui</CadastrarText>
-        </TouchableOpacity>
       </Container>
     </Background>
   );
 }
 
-export default Login;
+export default Register;

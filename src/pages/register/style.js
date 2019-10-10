@@ -11,8 +11,14 @@ export const Container = styled.KeyboardAvoidingView`
 `;
 
 export const Logo = styled.Image`
-  width: 123px;
-  height: 136px;
+  width: 90px;
+  height: 90px;
+`;
+
+export const Title = styled.Text`
+  font-size: 20px;
+  color: rgba(229, 229, 299, 0.9);
+  margin-top: 15px;
 `;
 
 export const Form = styled.View`
@@ -53,19 +59,4 @@ export const ButtonText = styled.Text`
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-`;
-
-export const ResetPassText = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  align-self: flex-end;
-  color: rgba(119, 123, 126, 0.9);
-  margin-top: 12px;
-`;
-
-export const CadastrarText = styled.Text`
-  color: rgba(119, 123, 126, 0.9);
-  font-size: 13px;
-  font-weight: bold;
-  margin-top: 120px;
 `;
