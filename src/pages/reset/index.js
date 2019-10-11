@@ -24,13 +24,13 @@ import {
   Form,
   FormInput,
   Input,
-  ButtonEntrar,
+  ButtonReset,
   ButtonText,
   Title,
   Header
 } from "./style";
 
-function Register({ navigation }) {
+function Reset({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   function handleBackNavigation() {
@@ -59,33 +59,18 @@ function Register({ navigation }) {
             <FontAwesome name="user-o" size={16} color="#000" />
             <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
           </FormInput>
-          <FormInput>
-            <MaterialCommunityIcons
-              name="email-outline"
-              size={16}
-              color="#000"
-            />
-            <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
-          </FormInput>
-          <FormInput>
-            <AntDesign name="lock" size={18} color="#000" />
-            <Input
-              placeholder="*******"
-              placeholderTextColor="#000"
-              secureTextEntry
-            />
-          </FormInput>
-          <ButtonEntrar onPress={handleCadastrar}>
+
+          <ButtonReset onPress={handleCadastrar}>
             {loading ? (
               <ActivityIndicator size={16} color="#fff" />
             ) : (
-              <ButtonText>CADASTRAR</ButtonText>
+              <ButtonText>RESETAR</ButtonText>
             )}
-          </ButtonEntrar>
+          </ButtonReset>
         </Form>
       </Container>
     </Background>
   );
 }
 
-export default Register;
+export default Reset;

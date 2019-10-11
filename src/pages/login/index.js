@@ -24,7 +24,15 @@ import {
   CadastrarText
 } from "./style";
 
-function Login() {
+function Login({ navigation }) {
+  function handleRegister() {
+    navigation.navigate("Register");
+  }
+
+  function handleResetPassword() {
+    navigation.navigate("Reset");
+  }
+
   return (
     <Background source={background}>
       <Container behavior="padding">
@@ -35,7 +43,7 @@ function Login() {
               name="email-outline"
               size={16}
               color="#000"
-            />{" "}
+            />
             <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
           </FormInput>
           <FormInput>
@@ -49,11 +57,11 @@ function Login() {
           <ButtonEntrar>
             <ButtonText>ENTRAR</ButtonText>
           </ButtonEntrar>
-          <TouchableOpacity activeOpacity={0.7}>
+          <TouchableOpacity activeOpacity={0.7} onPress={handleResetPassword}>
             <ResetPassText>esqueceu senha</ResetPassText>
           </TouchableOpacity>
         </Form>
-        <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+        <TouchableOpacity activeOpacity={0.7} onPress={handleRegister}>
           <CadastrarText>Solicite seu cadastro, aqui</CadastrarText>
         </TouchableOpacity>
       </Container>

@@ -47,7 +47,7 @@ export const Input = styled.TextInput`
   font-size: 16px;
 `;
 
-export const ButtonEntrar = styled.TouchableOpacity.attrs({
+export const ButtonReset = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7
 })`
   background-color: rgba(51, 81, 186, 0.9);
