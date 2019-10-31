@@ -33,6 +33,10 @@ function Login({ navigation }) {
     navigation.navigate("Reset");
   }
 
+  function handleHome() {
+    navigation.navigate("Home");
+  }
+
   return (
     <Background source={background}>
       <Container behavior="padding">
@@ -54,7 +58,7 @@ function Login({ navigation }) {
               secureTextEntry
             />
           </FormInput>
-          <ButtonEntrar>
+          <ButtonEntrar onPress={handleHome}>
             <ButtonText>ENTRAR</ButtonText>
           </ButtonEntrar>
           <TouchableOpacity activeOpacity={0.7} onPress={handleResetPassword}>
