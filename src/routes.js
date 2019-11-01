@@ -40,6 +40,7 @@ const Routes = createAppContainer(
                 name="directions-bus"
                 size={25}
                 color={focused ? "#5B456B" : "#000"}
+                s
               />
             )
           })
