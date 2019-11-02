@@ -58,7 +58,7 @@ export const ButtonText = styled.Text`
 export const ResetPassText = styled.Text`
   font-size: 16px;
   font-weight: bold;
-  align-self: flex-end;
+  align-self: center;
   color: rgba(119, 123, 126, 0.9);
   margin-top: 12px;
 `;
