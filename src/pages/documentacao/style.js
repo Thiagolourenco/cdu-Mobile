@@ -32,31 +32,56 @@ export const Content = styled.View`
   /* justify-content: flex-start; */
 `;
 
-// export const InputText = styled.Text`
-//   font-size: 18px;
-//   color: rgba(255, 255, 255, 0.8);
-//   font-weight: bold;
-//   margin-bottom: 14px;
-// `;
+export const TextButton = styled.Text`
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
 
-// export const Input = styled.TextInput`
-//   width: 345px;
-//   height: 55px;
-//   border-radius: 15px;
-//   background: rgba(196, 196, 196, 0.41);
-// `;
+export const ImageFoto = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.9
+})`
+  height: 202px;
+  width: 231px;
+  background: rgba(196, 196, 196, 0.41);
+  border-radius: 15px;
+  align-self: center;
+  margin-bottom: 8px;
+`;
 
-// export const ButtonAdd = styled.TouchableOpacity.attrs({
-//   activeOpacity: 0.7
-// })`
-//   height: 70px;
-//   width: 70px;
-//   border-radius: 35px;
-//   background: rgba(53, 79, 171, 0.94);
-//   justify-content: center;
-//   align-items: center;
-//   position: relative;
-//   align-self: flex-end;
-//   margin-top: 500px;
-//   margin-right: 40px;
-// `;
+export const ButtonFile = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.9
+})`
+  width: 345px;
+  height: 55px;
+  border-radius: 15px;
+  background: rgba(196, 196, 196, 0.41);
+  margin-bottom: 8px;
+`;
+
+export const Input = styled.TextInput`
+  width: 345px;
+  height: 55px;
+  border-radius: 15px;
+  background: rgba(196, 196, 196, 0.41);
+  margin-bottom: 20px;
+`;
+
+export const ButtonFinalizar = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.6
+})`
+  width: 161px;
+  height: 50px;
+  border-radius: 15px;
+  background: rgba(53, 79, 171, 0.94);
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonTextFinal = styled.Text`
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  font-weight: bold;
+`;
