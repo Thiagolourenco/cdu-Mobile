@@ -13,7 +13,11 @@ import {
   ButtonAdd
 } from "./style";
 
-function Cadastro() {
+function Cadastro({ navigation }) {
+  function handleDocument() {
+    navigation.navigate("Documentacao");
+  }
+
   return (
     <Background source={background}>
       <Container>
@@ -30,7 +34,7 @@ function Cadastro() {
           <InputText>Turno</InputText>
           <Input />
         </Content>
-        <ButtonAdd>
+        <ButtonAdd onPress={handleDocument}>
           <Icon name="keyboard-arrow-right" color="#fff" size={40} />
         </ButtonAdd>
       </Container>
