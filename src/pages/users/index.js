@@ -1,7 +1,7 @@
 import React from "react";
-import { Text } from "react-native";
+import { TouchableOpacity } from "react-native";
 import background from "../../assests/background.png";
-
+import Icon from "@expo/vector-icons/FontAwesome";
 import {
   Background,
   Container,
@@ -14,18 +14,22 @@ import {
   ButtonText
 } from "./style";
 
-function Users() {
+function Users({ navigation }) {
+  function handleGenerate() {
+    navigation.navigate("Generate");
+  }
+
   return (
     <Background source={background}>
       <Container>
-        <Text
+        <TouchableOpacity
           style={{
             alignSelf: "flex-start",
             marginLeft: 20
           }}
         >
-          Sair
-        </Text>
+          <Icon name="sign-out" size={30} color="#fff" />
+        </TouchableOpacity>
         <Title>MEU PERFIL</Title>
         <ImagePerfil />
         <Content>
@@ -36,7 +40,7 @@ function Users() {
           <Label>Curso</Label>
           <InfoUser>Sistema da Informação</InfoUser>
         </Content>
-        <ButtonGenerate onPress={() => {}}>
+        <ButtonGenerate onPress={handleGenerate}>
           <ButtonText>GERAR CARTEIRINHA</ButtonText>
         </ButtonGenerate>
       </Container>

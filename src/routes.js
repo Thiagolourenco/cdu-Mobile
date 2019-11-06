@@ -8,6 +8,8 @@ import Icon from "@expo/vector-icons/MaterialIcons";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Reset from "./pages/reset";
+
+// Bottom Tab Navigator
 import Home from "./pages/home";
 import Rotas from "./pages/rotas";
 import Cadastro from "./pages/cadastro";
@@ -15,6 +17,7 @@ import Users from "./pages/users";
 
 // Stacks
 import Documentacao from "./pages/documentacao";
+import Generate from "./pages/generateCarteirinha";
 
 Icon.loadFont();
 
@@ -24,7 +27,8 @@ const Routes = createAppContainer(
     Register,
     Reset,
     Docume: createStackNavigator({
-      Documentacao: { screen: Documentacao }
+      Documentacao: { screen: Documentacao },
+      Generate: { screen: Generate }
     }),
     home: createMaterialBottomTabNavigator(
       {
