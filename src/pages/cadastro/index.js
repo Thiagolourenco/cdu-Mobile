@@ -1,8 +1,7 @@
 import React from "react";
-import { Text } from "react-native";
 import Icon from "@expo/vector-icons/MaterialIcons";
 
-import background from "../../assests/background.png";
+import background from "../../assets/background.png";
 import {
   Background,
   Container,
@@ -13,7 +12,7 @@ import {
   ButtonAdd
 } from "./style";
 
-function Cadastro({ navigation }) {
+export default function Cadastro({ navigation }) {
   function handleDocument() {
     navigation.navigate("Documentacao");
   }
@@ -42,4 +41,9 @@ function Cadastro({ navigation }) {
   );
 }
 
-export default Cadastro;
+Cadastro.navigationOptions = {
+  tabBarLabel: "Documentação",
+  tabBarIcon: ({ focused }) => (
+    <Icon name="assignment" size={25} color={focused ? "#5B456B" : "#000"} />
+  )
+};

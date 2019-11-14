@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 
-import background from "../../assests/background.png";
-import logo from "../../assests/image.png";
+import background from "../../assets/background.png";
+import logo from "../../assets/image.png";
 
 import {
   Background,
@@ -25,6 +25,9 @@ import {
 } from "./style";
 
 function Login({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   function handleRegister() {
     navigation.navigate("Register");
   }
@@ -48,7 +51,13 @@ function Login({ navigation }) {
               size={16}
               color="#000"
             />
-            <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
+            <Input
+              placeholder="Seu e-mail"
+              keyboardType="email-address"
+              placeholderTextColor="#000"
+              value={email}
+              onChangeText={setEmail}
+            />
           </FormInput>
           <FormInput>
             <AntDesign name="lock" size={18} color="#000" />
@@ -56,6 +65,8 @@ function Login({ navigation }) {
               placeholder="*******"
               placeholderTextColor="#000"
               secureTextEntry
+              value={password}
+              onChangeText={setPassword}
             />
           </FormInput>
           <ButtonEntrar onPress={handleHome}>

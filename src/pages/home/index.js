@@ -1,11 +1,10 @@
 import React from "react";
-import { Text, FlatList, View } from "react-native";
 
 import { Container, Background, Header, Content, List } from "./style";
-import Icon from "@expo/vector-icons/FontAwesome";
-import background from "../../assests/background.png";
+import Icon from "@expo/vector-icons/MaterialIcons";
+import background from "../../assets/background.png";
 
-function Home() {
+export default function Home() {
   return (
     <Background source={background}>
       <Container>
@@ -20,4 +19,9 @@ function Home() {
   );
 }
 
-export default Home;
+Home.navigationOptions = {
+  tabBarLabel: "Home",
+  tabBarIcon: ({ focused }) => (
+    <Icon name="home" size={25} color={focused ? "#5B456B" : "#000"} />
+  )
+};

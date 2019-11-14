@@ -1,7 +1,8 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import background from "../../assests/background.png";
-import Icon from "@expo/vector-icons/FontAwesome";
+import background from "../../assets/background.png";
+import Icon from "@expo/vector-icons/MaterialIcons";
+
 import {
   Background,
   Container,
@@ -14,7 +15,7 @@ import {
   ButtonText
 } from "./style";
 
-function Users({ navigation }) {
+export default function Users({ navigation }) {
   function handleGenerate() {
     navigation.navigate("Generate");
   }
@@ -48,4 +49,9 @@ function Users({ navigation }) {
   );
 }
 
-export default Users;
+Users.navigationOptions = {
+  tabBarLabel: "Perfil",
+  tabBarIcon: ({ focused }) => (
+    <Icon name="person" size={30} color={focused ? "#5B456B" : "#000"} />
+  )
+};

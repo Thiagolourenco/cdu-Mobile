@@ -14,8 +14,8 @@ import {
   MaterialIcons
 } from "@expo/vector-icons";
 
-import background from "../../assests/background.png";
-import logo from "../../assests/image.png";
+import background from "../../assets/background.png";
+import logo from "../../assets/image.png";
 
 import {
   Background,

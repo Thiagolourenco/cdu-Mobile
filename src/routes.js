@@ -15,7 +15,7 @@ import Rotas from "./pages/rotas";
 import Cadastro from "./pages/cadastro";
 import Users from "./pages/users";
 
-// Stacks
+// Navegação Extra
 import Documentacao from "./pages/documentacao";
 import Generate from "./pages/generateCarteirinha";
 
@@ -23,71 +23,28 @@ Icon.loadFont();
 
 const Routes = createAppContainer(
   createSwitchNavigator({
-    Login,
-    Register,
-    Reset,
-    Docume: createStackNavigator({
-      Documentacao: { screen: Documentacao },
-      Generate: { screen: Generate }
+    Sign: createSwitchNavigator({
+      Login,
+      Register,
+      Reset
     }),
-    home: createMaterialBottomTabNavigator(
+    App: createMaterialBottomTabNavigator(
       {
-        Home: {
-          screen: Home,
-          navigationOptions: () => ({
-            tabBarIcon: ({ focused }) => (
-              <Icon
-                name="home"
-                size={25}
-                color={focused ? "#5B456B" : "#000"}
-              />
-            )
-          })
-        },
-        Rotas: {
-          screen: Rotas,
-          navigationOptions: () => ({
-            tabBarIcon: ({ focused }) => (
-              <Icon
-                name="directions-bus"
-                size={25}
-                color={focused ? "#5B456B" : "#000"}
-                s
-              />
-            )
-          })
-        },
-        Cadastro: {
-          screen: Cadastro,
-          navigationOptions: () => ({
-            tabBarIcon: ({ focused }) => (
-              <Icon
-                name="assignment"
-                size={25}
-                color={focused ? "#5B456B" : "#000"}
-              />
-            )
-          })
-        },
-        Users: {
-          screen: Users,
-          navigationOptions: () => ({
-            tabBarIcon: ({ focused }) => (
-              <Icon
-                name="person"
-                size={30}
-                color={focused ? "#5B456B" : "#000"}
-              />
-            )
-          })
-        }
+        Home,
+        Rotas,
+        Cadastro,
+        Users
       },
       {
-        // activeColor: "#fff",
+        activeColor: "#000",
         inactiveColor: "#3e2465",
         barStyle: { backgroundColor: "#fff" }
       }
-    )
+    ),
+    Rest: createSwitchNavigator({
+      Documentacao,
+      Generate
+    })
   })
 );
 

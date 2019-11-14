@@ -1,7 +1,6 @@
 import React from "react";
-import { Text } from "react-native";
 
-import background from "../../assests/background.png";
+import background from "../../assets/background.png";
 
 import {
   Background,
@@ -16,7 +15,7 @@ import {
 } from "./style";
 import Icon from "@expo/vector-icons/MaterialIcons";
 
-function Rotas() {
+export default function Rotas() {
   return (
     <Background source={background}>
       <Container>
@@ -79,4 +78,13 @@ function Rotas() {
   );
 }
 
-export default Rotas;
+Rotas.navigationOptions = {
+  tabBarLabel: "Rotas",
+  tabBarIcon: ({ focused }) => (
+    <Icon
+      name="directions-bus"
+      size={25}
+      color={focused ? "#5B456B" : "#000"}
+    />
+  )
+};

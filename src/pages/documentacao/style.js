@@ -5,10 +5,8 @@ export const Background = styled.ImageBackground`
 `;
 
 export const Container = styled.KeyboardAvoidingView`
-  /* justify-content: center; */
   margin-top: 50px;
   align-items: center;
-  /* flex: 1; */
 `;
 
 export const Title = styled.Text`
@@ -27,9 +25,7 @@ export const Header = styled.View`
 `;
 
 export const Content = styled.View`
-  flex: 1;
   margin-top: 15px;
-  /* justify-content: flex-start; */
 `;
 
 export const TextButton = styled.Text`
@@ -39,22 +35,20 @@ export const TextButton = styled.Text`
   margin-bottom: 10px;
 `;
 
-export const ImageFoto = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.9
-})`
+export const ImageFoto = styled.View`
   height: 202px;
   width: 231px;
-  background: rgba(196, 196, 196, 0.41);
+  /* background: rgba(196, 196, 196, 0.41);
   border-radius: 15px;
   align-self: center;
-  margin-bottom: 8px;
+  margin-bottom: 8px; */
 `;
 
 export const ButtonFile = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.9
+  activeOpacity: 0.7
 })`
   width: 345px;
-  height: 55px;
+  height: 50px;
   border-radius: 15px;
   background: rgba(196, 196, 196, 0.41);
   margin-bottom: 8px;
@@ -62,15 +56,15 @@ export const ButtonFile = styled.TouchableOpacity.attrs({
 
 export const Input = styled.TextInput`
   width: 345px;
-  height: 55px;
+  height: 50px;
+  padding-left: 10px;
   border-radius: 15px;
   background: rgba(196, 196, 196, 0.41);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 20px;
 `;
 
-export const ButtonFinalizar = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.6
-})`
+export const ButtonFinalizar = styled.TouchableOpacity`
   width: 161px;
   height: 50px;
   border-radius: 15px;
@@ -84,4 +78,15 @@ export const ButtonTextFinal = styled.Text`
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   font-weight: bold;
+`;
+
+export const ButtonFoto = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.7
+})`
+  height: 202px;
+  width: 231px;
+  background: rgba(196, 196, 196, 0.41);
+  border-radius: 15px;
+  align-self: center;
+  margin-bottom: 8px;
 `;

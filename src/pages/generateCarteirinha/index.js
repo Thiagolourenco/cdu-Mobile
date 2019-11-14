@@ -1,9 +1,9 @@
 import React from "react";
-import { Text } from "react-native";
+import { TouchableOpacity } from "react-native";
 import Icon from "@expo/vector-icons/MaterialIcons";
 
-import background from "../../assests/background.png";
-import logo from "../../assests/image.png";
+import background from "../../assets/background.png";
+import logo from "../../assets/image.png";
 
 import {
   Background,
@@ -20,19 +20,18 @@ import {
   Footer
 } from "./style";
 
-function GenerateCarteirinha() {
+function GenerateCarteirinha({ navigation }) {
   return (
     <Background source={background}>
       <Container>
-        <Icon
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Users")}
           style={{ alignSelf: "flex-start", marginLeft: 20 }}
-          name="arrow-back"
-          size={24}
-          color="#fff"
-        />
+        >
+          <Icon name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
         <Title>Carteirinha</Title>
         <Header>
-          <Logo source={logo} />
           <TitleCdu>CDU</TitleCdu>
         </Header>
 
