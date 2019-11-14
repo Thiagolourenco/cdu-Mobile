@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Text, TouchableOpacity } from "react-native";
 import Icon from "@expo/vector-icons/MaterialIcons";
 import * as ImagePicker from "expo-image-picker";
+import * as DocumentPicker from "expo-document-picker";
 
-import background from "../../assets/background.png";
+import background from "../../../assets/background.png";
+
 import {
   Container,
   Background,
@@ -16,11 +18,19 @@ import {
   Input,
   ButtonFinalizar,
   ButtonTextFinal,
-  ButtonFoto
+  ButtonFoto,
+  ButtonFileText
 } from "./style";
 
 function Documentacao({ navigation }) {
   const [image, setImage] = useState(null);
+  const [doc, setDoc] = useState([]);
+
+  async function handleDoc() {
+    const response = await DocumentPicker.getDocumentAsync({});
+
+    setDoc(response);
+  }
 
   async function handleImage() {
     const response = await ImagePicker.launchImageLibraryAsync({
@@ -41,7 +51,9 @@ function Documentacao({ navigation }) {
     <Background source={background}>
       <Container behavior="padding">
         <Header>
-          <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("DadosPessoais")}
+          >
             <Icon name="arrow-back" size={24} color="#fff" />
           </TouchableOpacity>
           <Title>Documentos</Title>
@@ -52,7 +64,9 @@ function Documentacao({ navigation }) {
             <ImageFoto source={{ uri: image }} />
           </ButtonFoto>
           <TextButton>Declaração</TextButton>
-          <ButtonFile onPress={() => {}} />
+          <ButtonFile onPress={handleDoc}>
+            <ButtonFileText>{doc.name}</ButtonFileText>
+          </ButtonFile>
           <TextButton>Grade Curricular</TextButton>
           <ButtonFile onPress={() => {}} />
           <TextButton>CPF</TextButton>

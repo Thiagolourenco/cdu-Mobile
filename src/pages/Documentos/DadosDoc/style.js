@@ -5,7 +5,7 @@ export const Background = styled.ImageBackground`
 `;
 
 export const Container = styled.KeyboardAvoidingView`
-  margin-top: 50px;
+  /* margin-top: 40px; */
   align-items: center;
 `;
 
@@ -18,13 +18,13 @@ export const Title = styled.Text`
 `;
 
 export const Header = styled.View`
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-left: 20px;
+  margin-top: 35px;
   align-self: flex-start;
   flex-direction: row;
 `;
 
-export const Content = styled.View`
+export const Content = styled.ScrollView`
   margin-top: 15px;
 `;
 
@@ -48,6 +48,8 @@ export const ButtonFile = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7
 })`
   width: 345px;
+  align-items: center;
+  justify-content: center;
   height: 50px;
   border-radius: 15px;
   background: rgba(196, 196, 196, 0.41);
@@ -89,4 +91,10 @@ export const ButtonFoto = styled.TouchableOpacity.attrs({
   border-radius: 15px;
   align-self: center;
   margin-bottom: 8px;
+`;
+
+export const ButtonFileText = styled.Text`
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
 `;

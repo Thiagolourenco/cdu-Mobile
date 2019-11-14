@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "@expo/vector-icons/MaterialIcons";
 
-import background from "../../assets/background.png";
+import background from "../../../assets/background.png";
 import {
   Background,
   Container,
@@ -14,7 +14,7 @@ import {
 
 export default function Cadastro({ navigation }) {
   function handleDocument() {
-    navigation.navigate("Documentacao");
+    navigation.navigate("DadosDoc");
   }
 
   return (
@@ -31,7 +31,7 @@ export default function Cadastro({ navigation }) {
           <InputText>Faculdade</InputText>
           <Input />
           <InputText>Turno</InputText>
-          <Input />
+          <Input keyboardType="numeric" />
         </Content>
         <ButtonAdd onPress={handleDocument}>
           <Icon name="keyboard-arrow-right" color="#fff" size={40} />

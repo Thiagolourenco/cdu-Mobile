@@ -12,11 +12,12 @@ import Reset from "./pages/reset";
 // Bottom Tab Navigator
 import Home from "./pages/home";
 import Rotas from "./pages/rotas";
-import Cadastro from "./pages/cadastro";
 import Users from "./pages/users";
 
-// Navegação Extra
-import Documentacao from "./pages/documentacao";
+// Navegação Cadastro da documentação
+import DadosPessoais from "./pages/Documentos/DadosPessoais";
+import DadosDoc from "./pages/Documentos/DadosDoc";
+
 import Generate from "./pages/generateCarteirinha";
 
 Icon.loadFont();
@@ -32,7 +33,33 @@ const Routes = createAppContainer(
       {
         Home,
         Rotas,
-        Cadastro,
+        Doc: {
+          screen: createStackNavigator(
+            {
+              DadosPessoais,
+              DadosDoc
+            },
+            {
+              defaultNavigationOptions: {
+                headerTransparent: true,
+                headerTintColor: "#fff",
+                headerLeftContainerStyle: {
+                  marginLeft: 20
+                }
+              }
+            }
+          ),
+          navigationOptions: {
+            tabBarLabel: "Documentação",
+            tabBarIcon: ({ focused }) => (
+              <Icon
+                name="assignment"
+                size={25}
+                color={focused ? "#5B456B" : "#000"}
+              />
+            )
+          }
+        },
         Users
       },
       {
@@ -42,7 +69,6 @@ const Routes = createAppContainer(
       }
     ),
     Rest: createSwitchNavigator({
-      Documentacao,
       Generate
     })
   })
