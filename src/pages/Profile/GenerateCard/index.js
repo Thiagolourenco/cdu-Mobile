@@ -2,15 +2,13 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import Icon from "@expo/vector-icons/MaterialIcons";
 
-import background from "../../assets/background.png";
-import logo from "../../assets/image.png";
+import background from "../../../assets/background.png";
 
 import {
   Background,
   Container,
   Title,
   Header,
-  Logo,
   TitleCdu,
   ImagePerfil,
   Label,
@@ -25,7 +23,7 @@ function GenerateCarteirinha({ navigation }) {
     <Background source={background}>
       <Container>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Users")}
+          onPress={() => navigation.navigate("User")}
           style={{ alignSelf: "flex-start", marginLeft: 20 }}
         >
           <Icon name="arrow-back" size={24} color="#fff" />

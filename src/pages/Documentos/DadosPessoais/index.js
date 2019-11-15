@@ -31,7 +31,7 @@ export default function Cadastro({ navigation }) {
           <InputText>Faculdade</InputText>
           <Input />
           <InputText>Turno</InputText>
-          <Input keyboardType="numeric" />
+          <Input />
         </Content>
         <ButtonAdd onPress={handleDocument}>
           <Icon name="keyboard-arrow-right" color="#fff" size={40} />

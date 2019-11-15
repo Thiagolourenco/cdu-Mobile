@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  KeyboardAvoidingView,
-  TouchableOpacity,
-  ActivityIndicator
-} from "react-native";
+import { TouchableOpacity, ActivityIndicator } from "react-native";
 import {
   FontAwesome,
   AntDesign,
   MaterialCommunityIcons,
   MaterialIcons
 } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+
+import { signUpRequest } from "../../store/modules/auth/actions";
 
 import background from "../../assets/background.png";
 import logo from "../../assets/image.png";
@@ -31,13 +27,20 @@ import {
 } from "./style";
 
 function Register({ navigation }) {
+  const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleBackNavigation() {
     navigation.navigate("Login");
   }
 
   function handleCadastrar() {
+    dispatch(signUpRequest(name, email, password));
+
     setTimeout(() => {
       navigation.navigate("Login");
     }, 3000);
@@ -57,7 +60,12 @@ function Register({ navigation }) {
         <Form>
           <FormInput>
             <FontAwesome name="user-o" size={16} color="#000" />
-            <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
+            <Input
+              placeholder="Seu Nome"
+              value={name}
+              onChangeText={setName}
+              placeholderTextColor="#000"
+            />
           </FormInput>
           <FormInput>
             <MaterialCommunityIcons
@@ -65,7 +73,12 @@ function Register({ navigation }) {
               size={16}
               color="#000"
             />
-            <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
+            <Input
+              placeholder="Seu e-mail"
+              value={email}
+              onChangeText={setEmail}
+              placeholderTextColor="#000"
+            />
           </FormInput>
           <FormInput>
             <AntDesign name="lock" size={18} color="#000" />
@@ -73,6 +86,8 @@ function Register({ navigation }) {
               placeholder="*******"
               placeholderTextColor="#000"
               secureTextEntry
+              value={password}
+              onChangeText={setPassword}
             />
           </FormInput>
           <ButtonEntrar onPress={handleCadastrar}>

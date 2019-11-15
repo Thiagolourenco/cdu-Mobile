@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import Icon from "@expo/vector-icons/MaterialIcons";
-import * as ImagePicker from "expo-image-picker";
 import * as DocumentPicker from "expo-document-picker";
 
 import background from "../../../assets/background.png";
@@ -22,29 +21,24 @@ import {
   ButtonFileText
 } from "./style";
 
+import CameraImage from "../../../components/CameraImage";
+
 function Documentacao({ navigation }) {
-  const [image, setImage] = useState(null);
   const [doc, setDoc] = useState([]);
+  const [gradeDoc, setGradeDoc] = useState([]);
 
   async function handleDoc() {
     const response = await DocumentPicker.getDocumentAsync({});
 
+    console.log(response);
     setDoc(response);
   }
 
-  async function handleImage() {
-    const response = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowEditing: true,
-      aspect: [4, 3],
-      quality: 1
-    });
+  async function handleGradeDoc() {
+    const response = await DocumentPicker.getDocumentAsync({});
 
-    console.log(response.uri);
-
-    if (!response.cancelled) {
-      setImage(response.uri);
-    }
+    console.log(response);
+    setGradeDoc(response);
   }
 
   return (
@@ -60,17 +54,20 @@ function Documentacao({ navigation }) {
         </Header>
         <Content>
           <TextButton>Foto</TextButton>
-          <ButtonFoto onPress={handleImage}>
-            <ImageFoto source={{ uri: image }} />
-          </ButtonFoto>
+          <CameraImage />
+          {/* <ButtonFoto onPress={handleImage}>
+            <ImageFoto />
+          </ButtonFoto> */}
           <TextButton>Declaração</TextButton>
           <ButtonFile onPress={handleDoc}>
             <ButtonFileText>{doc.name}</ButtonFileText>
           </ButtonFile>
           <TextButton>Grade Curricular</TextButton>
-          <ButtonFile onPress={() => {}} />
+          <ButtonFile onPress={handleGradeDoc}>
+            <ButtonFileText>{gradeDoc.name}</ButtonFileText>
+          </ButtonFile>
           <TextButton>CPF</TextButton>
-          <Input />
+          <Input keyboardType="numeric" />
           <ButtonFinalizar onPress={() => {}}>
             <ButtonTextFinal>FINALIZAR</ButtonTextFinal>
           </ButtonFinalizar>

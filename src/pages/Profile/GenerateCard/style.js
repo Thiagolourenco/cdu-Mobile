@@ -22,15 +22,9 @@ export const Header = styled.View`
   margin-top: 30px;
 `;
 
-export const Logo = styled.Image`
-  width: 47px;
-  height: 47px;
-`;
-
 export const TitleCdu = styled.Text`
   font-size: 24px;
   font-weight: bold;
-  margin-left: 10px;
   margin-top: 5px;
   color: rgba(255, 255, 255, 0.8);
 `;

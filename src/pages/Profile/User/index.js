@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import background from "../../assets/background.png";
+import background from "../../../assets/background.png";
 import Icon from "@expo/vector-icons/MaterialIcons";
 
 import {
@@ -17,7 +17,7 @@ import {
 
 export default function Users({ navigation }) {
   function handleGenerate() {
-    navigation.navigate("Generate");
+    navigation.navigate("GenerateCard");
   }
 
   return (
@@ -48,10 +48,3 @@ export default function Users({ navigation }) {
     </Background>
   );
 }
-
-Users.navigationOptions = {
-  tabBarLabel: "Perfil",
-  tabBarIcon: ({ focused }) => (
-    <Icon name="person" size={30} color={focused ? "#5B456B" : "#000"} />
-  )
-};

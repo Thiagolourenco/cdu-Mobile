@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  KeyboardAvoidingView,
-  TouchableOpacity
-} from "react-native";
+import { TouchableOpacity, ActivityIndicator } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+
+import { signInRequest } from "../../store/modules/auth/actions";
 
 import background from "../../assets/background.png";
 import logo from "../../assets/image.png";
@@ -25,6 +22,9 @@ import {
 } from "./style";
 
 function Login({ navigation }) {
+  const loading = useSelector(state => state.auth.loading);
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,7 +37,7 @@ function Login({ navigation }) {
   }
 
   function handleHome() {
-    navigation.navigate("Home");
+    dispatch(signInRequest(email, password));
   }
 
   return (
@@ -70,7 +70,11 @@ function Login({ navigation }) {
             />
           </FormInput>
           <ButtonEntrar onPress={handleHome}>
-            <ButtonText>ENTRAR</ButtonText>
+            {loading ? (
+              <ActivityIndicator size="small" color="#fff" />
+            ) : (
+              <ButtonText>ENTRAR</ButtonText>
+            )}
           </ButtonEntrar>
           <TouchableOpacity activeOpacity={0.7} onPress={handleResetPassword}>
             <ResetPassText>esqueceu senha</ResetPassText>
