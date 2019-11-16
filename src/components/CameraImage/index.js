@@ -24,6 +24,8 @@ export default function CameraImage() {
   async function handleImage() {
     const result = await ImagePicker.launchImageLibraryAsync({});
 
+    console.log(result.uri);
+
     if (!result.cancelled) {
       setImage(result.uri);
     }

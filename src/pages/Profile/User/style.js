@@ -17,7 +17,7 @@ export const Title = styled.Text`
   font-weight: bold;
 `;
 
-export const ImagePerfil = styled.View`
+export const ImagePerfil = styled.Image`
   width: 157px;
   height: 152px;
   border-radius: 80px;

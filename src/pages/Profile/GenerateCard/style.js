@@ -29,7 +29,7 @@ export const TitleCdu = styled.Text`
   color: rgba(255, 255, 255, 0.8);
 `;
 
-export const ImagePerfil = styled.View`
+export const ImagePerfil = styled.Image`
   width: 100px;
   height: 100px;
   border-radius: 50px;

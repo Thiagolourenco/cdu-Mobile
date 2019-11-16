@@ -18,6 +18,8 @@ import {
   Footer
 } from "./style";
 
+import perfil from "../../../assets/perfil.jpeg";
+
 function GenerateCarteirinha({ navigation }) {
   return (
     <Background source={background}>
@@ -33,14 +35,14 @@ function GenerateCarteirinha({ navigation }) {
           <TitleCdu>CDU</TitleCdu>
         </Header>
 
-        <ImagePerfil />
+        <ImagePerfil source={perfil} />
         <Content>
           <Label>Nome</Label>
-          <InfoUser>Thiago Lourenço</InfoUser>
+          <InfoUser>Thiago Lourenço Saraiva da Silva</InfoUser>
           <Label>Curso</Label>
           <InfoUser>Sistema de Informação</InfoUser>
           <Label>Matricula</Label>
-          <InfoUser>201608143112</InfoUser>
+          <InfoUser>20190312302</InfoUser>
           <Label>Validade</Label>
           <InfoUser>27/02/2020</InfoUser>
         </Content>
