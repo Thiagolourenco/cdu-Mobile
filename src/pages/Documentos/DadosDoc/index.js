@@ -12,12 +12,10 @@ import {
   Title,
   Content,
   TextButton,
-  ImageFoto,
   ButtonFile,
   Input,
   ButtonFinalizar,
   ButtonTextFinal,
-  ButtonFoto,
   ButtonFileText
 } from "./style";
 
@@ -55,9 +53,7 @@ function Documentacao({ navigation }) {
         <Content>
           <TextButton>Foto</TextButton>
           <CameraImage />
-          {/* <ButtonFoto onPress={handleImage}>
-            <ImageFoto />
-          </ButtonFoto> */}
+
           <TextButton>Declaração</TextButton>
           <ButtonFile onPress={handleDoc}>
             <ButtonFileText>{doc.name}</ButtonFileText>

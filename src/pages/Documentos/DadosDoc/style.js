@@ -35,15 +35,6 @@ export const TextButton = styled.Text`
   margin-bottom: 10px;
 `;
 
-export const ImageFoto = styled.View`
-  height: 202px;
-  width: 231px;
-  /* background: rgba(196, 196, 196, 0.41);
-  border-radius: 15px;
-  align-self: center;
-  margin-bottom: 8px; */
-`;
-
 export const ButtonFile = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7
 })`
@@ -80,17 +71,6 @@ export const ButtonTextFinal = styled.Text`
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   font-weight: bold;
-`;
-
-export const ButtonFoto = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.7
-})`
-  height: 202px;
-  width: 231px;
-  background: rgba(196, 196, 196, 0.41);
-  border-radius: 15px;
-  align-self: center;
-  margin-bottom: 8px;
 `;
 
 export const ButtonFileText = styled.Text`

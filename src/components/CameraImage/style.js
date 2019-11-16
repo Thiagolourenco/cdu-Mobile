@@ -7,19 +7,19 @@ export const Container = styled.View`
 export const ButtonFoto = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7
 })`
-  height: 202px;
-  width: 231px;
-  background: rgba(196, 196, 196, 0.41);
-  border-radius: 15px;
   align-self: center;
   margin-bottom: 8px;
 `;
 
-export const ImageFoto = styled.View`
-  height: 202px;
-  width: 231px;
-  /* background: rgba(196, 196, 196, 0.41);
+export const ButtonFotoSelect = styled.Text`
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+export const ImageFoto = styled.Image`
+  height: 150px;
+  width: 150px;
   border-radius: 15px;
-  align-self: center;
-  margin-bottom: 8px; */
 `;
