@@ -2,7 +2,8 @@ import React from "react";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import { createStackNavigator } from "react-navigation-stack";
-
+import createAnimatedSwitchNavigator from "react-navigation-animated-switch";
+import { Transition } from "react-native-reanimated";
 import Icon from "@expo/vector-icons/MaterialIcons";
 
 import Login from "./pages/login";
@@ -26,11 +27,25 @@ export default (isSigned = false) =>
   createAppContainer(
     createSwitchNavigator(
       {
-        Sign: createSwitchNavigator({
-          Login,
-          Register,
-          Reset
-        }),
+        Sign: createAnimatedSwitchNavigator(
+          {
+            Login,
+            Register,
+            Reset
+          },
+          {
+            transition: (
+              <Transition.Together>
+                <Transition.Out
+                  type="slide-right"
+                  durationMs={400}
+                  interpolation="easeIn"
+                />
+                <Transition.In type="fade" durationMs={500} />
+              </Transition.Together>
+            )
+          }
+        ),
         App: createMaterialBottomTabNavigator(
           {
             Home,
