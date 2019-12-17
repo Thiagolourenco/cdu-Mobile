@@ -37,7 +37,8 @@ function Login({ navigation }) {
   }
 
   function handleHome() {
-    dispatch(signInRequest(email, password));
+    // dispatch(signInRequest(email, password));
+    navigation.navigate('Home');
   }
 
   return (

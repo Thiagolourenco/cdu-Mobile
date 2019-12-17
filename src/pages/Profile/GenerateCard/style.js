@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import {Platform} from 'react-native'
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -12,18 +13,18 @@ export const Container = styled.KeyboardAvoidingView`
 `;
 
 export const Title = styled.Text`
-  font-size: 26px;
+  font-size: ${Platform.OS === 'ios' ? 20 :26}px;
   color: rgba(255, 255, 255, 0.8);
   font-weight: bold;
 `;
 
 export const Header = styled.View`
   flex-direction: row;
-  margin-top: 30px;
+  margin-top: ${Platform.OS === 'ios' ? 10 : 30}px;
 `;
 
 export const TitleCdu = styled.Text`
-  font-size: 24px;
+  font-size: ${Platform.OS === 'ios' ? 18 :24}px;
   font-weight: bold;
   margin-top: 5px;
   color: rgba(255, 255, 255, 0.8);
@@ -38,20 +39,20 @@ export const ImagePerfil = styled.Image`
 `;
 
 export const Content = styled.View`
-  margin-top: 40px;
+  margin-top: ${Platform.OS === 'ios' ? 10 :40}px;
   align-self: flex-start;
   margin-left: 30px;
 `;
 
 export const Label = styled.Text`
-  font-size: 18;
+  font-size: ${Platform.OS === 'ios' ? 15 : 18}px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 5px;
 `;
 
 export const InfoUser = styled.Text`
-  font-size: 18px;
+  font-size: ${Platform.OS === 'ios' ? 15 : 18}px;
   font-weight: bold;
   margin-top: 5px;
   color: rgba(0, 0, 0, 0.6);

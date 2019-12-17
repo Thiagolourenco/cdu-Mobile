@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Platform } from "react-native";
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -15,8 +16,9 @@ export const Header = styled.View`
   background: #f9f0f0;
   margin-top: 20px;
   border-radius: 20px;
-  width: 349px;
-  height: 180px;
+  /* width: ${Platform.OS === 'ios' ? 290 : 349}px; */
+  width: 90%;
+  height: ${Platform.OS === 'ios' ? 140 : 180}px;
 `;
 
 export const Content = styled.View``;

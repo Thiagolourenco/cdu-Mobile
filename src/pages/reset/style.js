@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import {Platform} from 'react-native'
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -14,7 +15,7 @@ export const Container = styled.KeyboardAvoidingView`
 export const Logo = styled.Image`
   width: 90px;
   height: 90px;
-  margin-left: 110px;
+  margin-left: ${Platform.OS === 'ios' ? 70 : 110}px;
   margin-top: 20px;
 `;
 
@@ -32,10 +33,10 @@ export const Form = styled.View`
 
 export const FormInput = styled.View`
   background-color: rgba(196, 196, 196, 0.41);
-  height: 54px;
+  height: ${Platform.OS === 'ios' ? 45 : 54 }px;
   flex-direction: row;
   margin-top: 20px;
-  border-radius: 15px;
+  border-radius: 5px;
   align-items: center;
   padding-left: 10px;
 `;
@@ -51,10 +52,10 @@ export const ButtonReset = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7
 })`
   background-color: rgba(51, 81, 186, 0.9);
-  height: 54px;
+  height: ${Platform.OS === 'ios' ? 45 : 54}px;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 5px;
   margin-top: 26px;
 `;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Platform } from "react-native";
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -10,11 +11,11 @@ export const Container = styled.KeyboardAvoidingView`
 `;
 
 export const Title = styled.Text`
-  font-size: 26px;
+  font-size: ${Platform.OS === 'ios' ? 20 :26}px;
   color: rgba(255, 255, 255, 0.8);
   /* text-align: center; */
   font-weight: bold;
-  margin-left: 85px;
+  margin-left: ${Platform.OS === 'ios' ? 57 : 85}px;
 `;
 
 export const Header = styled.View`
@@ -29,7 +30,7 @@ export const Content = styled.ScrollView`
 `;
 
 export const TextButton = styled.Text`
-  font-size: 18px;
+  font-size: ${Platform.OS === 'ios' ? 16 : 18 }px ;
   color: rgba(255, 255, 255, 0.8);
   font-weight: bold;
   margin-bottom: 10px;
@@ -38,20 +39,20 @@ export const TextButton = styled.Text`
 export const ButtonFile = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7
 })`
-  width: 345px;
+  width: ${Platform.OS === 'ios' ? 290 :345}px;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  border-radius: 15px;
+  height: ${Platform.OS === 'ios' ? 45 : 50}px;
+  border-radius: 5px;
   background: rgba(196, 196, 196, 0.41);
   margin-bottom: 8px;
 `;
 
 export const Input = styled.TextInput`
-  width: 345px;
-  height: 50px;
+  width: ${Platform.OS === 'ios' ? 290 : 345}px;
+  height: ${Platform.OS === 'ios' ? 45 : 50 }px;
   padding-left: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
   background: rgba(196, 196, 196, 0.41);
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 20px;
@@ -59,8 +60,8 @@ export const Input = styled.TextInput`
 
 export const ButtonFinalizar = styled.TouchableOpacity`
   width: 161px;
-  height: 50px;
-  border-radius: 15px;
+  height: ${Platform.OS === 'ios' ? 45 : 54}px;
+  border-radius: 5px;
   background: rgba(53, 79, 171, 0.94);
   align-self: center;
   justify-content: center;

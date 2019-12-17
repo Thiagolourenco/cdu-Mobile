@@ -31,9 +31,6 @@ function GenerateCarteirinha({ navigation }) {
           <Icon name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Title>Carteirinha</Title>
-        <Header>
-          <TitleCdu>CDU</TitleCdu>
-        </Header>
 
         <ImagePerfil source={perfil} />
         <Content>

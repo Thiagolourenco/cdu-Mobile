@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import {Platform} from 'react-native'
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -11,6 +12,7 @@ export const Container = styled.KeyboardAvoidingView`
 `;
 
 export const Logo = styled.Image`
+  margin-top: ${Platform.OS === 'ios' ? 10 : 0}px;
   width: 123px;
   height: 136px;
 `;
@@ -23,10 +25,10 @@ export const Form = styled.View`
 
 export const FormInput = styled.View`
   background-color: rgba(196, 196, 196, 0.41);
-  height: 54px;
+  height: ${Platform.OS === 'ios' ? 45 : 54 }px;
   flex-direction: row;
   margin-top: 20px;
-  border-radius: 15px;
+  border-radius: 5px;
   align-items: center;
   padding-left: 10px;
 `;
@@ -42,10 +44,10 @@ export const ButtonEntrar = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7
 })`
   background-color: rgba(51, 81, 186, 0.9);
-  height: 54px;
+  height: ${Platform.OS === 'ios' ? 45 : 54}px;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 5px;
   margin-top: 26px;
 `;
 
@@ -56,7 +58,7 @@ export const ButtonText = styled.Text`
 `;
 
 export const ResetPassText = styled.Text`
-  font-size: 16px;
+  font-size: ${Platform.OS === 'ios' ? 14 : 16}px;
   font-weight: bold;
   align-self: center;
   color: rgba(119, 123, 126, 0.9);
@@ -67,5 +69,5 @@ export const CadastrarText = styled.Text`
   color: rgba(119, 123, 126, 0.9);
   font-size: 13px;
   font-weight: bold;
-  margin-top: 120px;
+  margin-top: ${Platform.OS === 'ios' ? 40 : 120}px;
 `;
