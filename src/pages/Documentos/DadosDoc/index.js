@@ -21,7 +21,7 @@ import {
 
 import CameraImage from "../../../components/CameraImage";
 
-function Documentacao({ navigation }) {
+function Documentacao({ navigation, data }) {
   const [doc, setDoc] = useState([]);
   const [gradeDoc, setGradeDoc] = useState([]);
 
@@ -37,6 +37,13 @@ function Documentacao({ navigation }) {
 
     console.log(response);
     setGradeDoc(response);
+  }
+
+  function handleConcluirCadastro() {
+    console.log(data);
+
+    // Criar o Controller para upload de arquivos e da informacao do 
+    // CPF e cadastrar os uploads.
   }
 
   return (
@@ -64,7 +71,7 @@ function Documentacao({ navigation }) {
           </ButtonFile>
           <TextButton>CPF</TextButton>
           <Input keyboardType="numeric" />
-          <ButtonFinalizar onPress={() => {}}>
+          <ButtonFinalizar onPress={handleConcluirCadastro}>
             <ButtonTextFinal>FINALIZAR</ButtonTextFinal>
           </ButtonFinalizar>
         </Content>

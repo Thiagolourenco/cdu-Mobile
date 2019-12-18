@@ -24,11 +24,11 @@ export const Content = styled.View`
   /* justify-content: flex-start; */
 `;
 
-export const InputText = styled.Text`
-  font-size: ${Platform.OS === 'ios' ? 15 : 18}px;
+export const TextButton = styled.Text`
+  font-size: ${Platform.OS === 'ios' ? 16 : 18 }px ;
   color: rgba(255, 255, 255, 0.8);
   font-weight: bold;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 `;
 
 export const Input = styled.TextInput`
@@ -38,6 +38,23 @@ export const Input = styled.TextInput`
   padding-left: 10px;
   border-radius: 5px;
   background: rgba(196, 196, 196, 0.41);
+`;
+
+export const ButtonSelectPicker = styled.TouchableOpacity`
+  width: ${Platform.OS === 'ios' ? 290 : 345}px;
+  height: ${Platform.OS === 'ios' ? 45 : 50 }px;
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 10px;
+  border-radius: 5px;
+  background: rgba(196, 196, 196, 0.41);
+`;
+
+export const SelectPicker = styled.Picker`
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 10px;
+  border-radius: 5px;
+  background: rgba(196, 196, 196, 0.41);
+
 `;
 
 export const ButtonAdd = styled.TouchableOpacity.attrs({
