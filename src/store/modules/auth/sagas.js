@@ -1,5 +1,5 @@
 import { Alert } from "react-native";
-import { all, takeLatest, call, put } from "redux-saga/effects";
+import { all, takeLatest, call, put, take } from "redux-saga/effects";
 
 import { signInSuccess, signFailure } from "./actions";
 
@@ -54,6 +54,17 @@ export function* signUp({ payload }) {
   }
 }
 
+export function* forgotPassword({ payload }) {
+  try {
+    const { email, redirect_url } = payload;
+
+    yield call(api.post, "passwords", { email, redirect_url });
+  } catch (err) {
+    alert("Erro ao Cadastrar");
+    yield put(signFailure());
+  }
+}
+
 export function setToken({ payload }) {
   if (!payload) return;
 
@@ -67,5 +78,6 @@ export function setToken({ payload }) {
 export default all([
   takeLatest("persist/REHYDRATE", setToken),
   takeLatest("@auth/SIGN_IN_REQUEST", signIn),
-  takeLatest("@auth/SIGN_UP_REQUEST", signUp)
+  takeLatest("@auth/SIGN_UP_REQUEST", signUp),
+  takeLatest("@auth/FORGOT_PASSWORD_REQUEST", forgotPassword)
 ]);

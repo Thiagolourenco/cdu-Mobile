@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ActivityIndicator
 } from "react-native";
+import { useDispatch } from "react-redux";
 import {
   FontAwesome,
   AntDesign,
@@ -14,6 +15,7 @@ import {
   MaterialIcons
 } from "@expo/vector-icons";
 
+import { forgotPasswordRequest } from "../../store/modules/auth/actions";
 import background from "../../assets/background.png";
 import logo from "../../assets/image.png";
 
@@ -31,17 +33,24 @@ import {
 } from "./style";
 
 function Reset({ navigation }) {
+  const dispatch = useDispatch();
+  const redirect_url = "http://localhost:3000/forgot_password";
+
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
 
   function handleBackNavigation() {
     navigation.navigate("Login");
   }
 
-  function handleCadastrar() {
+  function handleForgotPassword() {
+    setLoading(true);
     setTimeout(() => {
+      dispatch(forgotPasswordRequest(email, redirect_url));
+
+      setLoading(false);
       navigation.navigate("Login");
     }, 3000);
-    setLoading(true);
   }
 
   return (
@@ -57,10 +66,15 @@ function Reset({ navigation }) {
         <Form>
           <FormInput>
             <FontAwesome name="user-o" size={16} color="#000" />
-            <Input placeholder="Seu e-mail" placeholderTextColor="#000" />
+            <Input
+              placeholder="Seu e-mail"
+              placeholderTextColor="#000"
+              value={email}
+              onChangeText={setEmail}
+            />
           </FormInput>
 
-          <ButtonReset onPress={handleCadastrar}>
+          <ButtonReset onPress={handleForgotPassword}>
             {loading ? (
               <ActivityIndicator size={16} color="#fff" />
             ) : (
