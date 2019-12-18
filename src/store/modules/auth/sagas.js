@@ -1,5 +1,6 @@
 import { Alert } from "react-native";
 import { all, takeLatest, call, put, take } from "redux-saga/effects";
+import {showMessage} from 'react-native-flash-message'
 
 import { signInSuccess, signFailure } from "./actions";
 
@@ -14,10 +15,11 @@ export function* signIn({ payload }) {
     const { token, user } = response.data;
 
     if (user.provider) {
-      Alert.alert(
-        "Erro no login",
-        "O usuário não pode ser prestador de serviços"
-      );
+      showMessage({
+        message: "Erro ao Efetuar Login", 
+        description: "Verificar os dados informados",
+        type: "danger"
+      })
       return;
     }
 
@@ -27,10 +29,12 @@ export function* signIn({ payload }) {
 
     // history.push('/dashboard');
   } catch (err) {
-    Alert.alert(
-      "Falha na autenticação",
-      "Houve um error no login, verifique seus dados"
-    );
+    showMessage({
+      message: "Falha na autenticaçao",
+      description: "Houve um erro no login, verifique seus dados",
+      type: "danger"
+    });
+
     yield put(signFailure());
   }
 }
@@ -39,17 +43,18 @@ export function* signUp({ payload }) {
   try {
     const { name, email, password } = payload;
 
-    yield call(api.post, "users", { name, email, password });
+      yield call(api.post, "users", { name, email, password });
 
-    // Alert.alert(
-    //   'Usuári',
-    //   'O usuário não pode ser prestador de serviços',
-    // );
+    showMessage({
+      message: " Cadastro realizado com sucesso",
+      type: "success"
+    })
   } catch (err) {
-    Alert.alert(
-      "Erro no Cadastro",
-      "Verifique seus dados, e-mail pode já existir"
-    );
+    showMessage({
+      message: "Erro no Cadastro",
+      description: "Verifique seus dados, e-mail pode já existir",
+      type: "warning"
+    });
     yield put(signFailure());
   }
 }
@@ -59,8 +64,15 @@ export function* forgotPassword({ payload }) {
     const { email, redirect_url } = payload;
 
     yield call(api.post, "passwords", { email, redirect_url });
+    showMessage({
+      message: "E-mail de recuperacao de senha, foi enviada com sucesso",
+      type: "success"
+    })
   } catch (err) {
-    alert("Erro ao Cadastrar");
+    showMessage({
+      message: "Houve um erro ao enviar um e-mail",
+      type: "danger"
+    })
     yield put(signFailure());
   }
 }

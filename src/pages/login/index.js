@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { TouchableOpacity, ActivityIndicator } from "react-native";
+import { TouchableOpacity, ActivityIndicator, SafeAreaView } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import {showMessage, hideMessage} from 'react-native-flash-message'
 
 import { signInRequest } from "../../store/modules/auth/actions";
 
@@ -37,13 +38,14 @@ function Login({ navigation }) {
   }
 
   function handleHome() {
-    dispatch(signInRequest(email, password));
-    // navigation.navigate('Home');
+    // dispatch(signInRequest(email, password));
+    navigation.navigate('Home');
   }
 
   return (
     <Background source={background}>
       <Container behavior="padding">
+      <SafeAreaView style={{flex: 1, justifyContent: "center", alignItems: "center", alignSelf: "stretch"}}>
         <Logo source={logo} />
         <Form>
           <FormInput>
@@ -84,6 +86,7 @@ function Login({ navigation }) {
         <TouchableOpacity activeOpacity={0.7} onPress={handleRegister}>
           <CadastrarText>Solicite seu cadastro, aqui</CadastrarText>
         </TouchableOpacity>
+        </SafeAreaView>
       </Container>
     </Background>
   );

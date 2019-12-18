@@ -25,7 +25,7 @@ export const Content = styled.View`
 `;
 
 export const InputText = styled.Text`
-  font-size: 18px;
+  font-size: ${Platform.OS === 'ios' ? 15 : 18}px;
   color: rgba(255, 255, 255, 0.8);
   font-weight: bold;
   margin-bottom: 14px;

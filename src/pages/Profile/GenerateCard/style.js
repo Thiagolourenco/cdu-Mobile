@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import {Platform} from 'react-native'
+import { ifIphoneX } from "react-native-iphone-x-helper";
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -61,7 +62,7 @@ export const InfoUser = styled.Text`
 export const Footer = styled.View`
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 80px;
 `;
 
 export const InfoImportant = styled.Text`

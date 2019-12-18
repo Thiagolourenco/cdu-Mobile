@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "@expo/vector-icons/MaterialIcons";
+import {SafeAreaView} from 'react-native'
 
 import background from "../../../assets/background.png";
 import {
@@ -19,7 +20,9 @@ export default function Cadastro({ navigation }) {
 
   return (
     <Background source={background}>
-      <Container>
+      <Container behavior="padding">
+      <SafeAreaView style={{ justifyContent: "center", alignItems: "center", alignSelf: "stretch"}}>
+
         <Title>Cadastro</Title>
         <Content>
           <InputText>Nome Completo</InputText>
@@ -36,6 +39,7 @@ export default function Cadastro({ navigation }) {
         <ButtonAdd onPress={handleDocument}>
           <Icon name="keyboard-arrow-right" color="#fff" size={40} />
         </ButtonAdd>
+        </SafeAreaView>
       </Container>
     </Background>
   );

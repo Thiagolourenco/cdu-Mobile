@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import {Platform} from 'react-native'
+import {ifIphoneX} from 'react-native-iphone-x-helper'
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -22,12 +23,13 @@ export const ImagePerfil = styled.Image`
   width: ${Platform.OS === 'ios' ? 130 : 157}px;
   height: ${Platform.OS === 'ios' ? 125 : 152}px;
   border-radius: ${Platform.OS === 'ios' ? 65 : 80}px;
-  background: rgba(196, 196, 196, 0.41);
-  margin-top: 20px;
+  background: rgba(196, 196, 196, 0.41  );
+  margin-top: 30px;
 `;
 
 export const Content = styled.View`
   margin-top: ${Platform.OS === 'ios' ? 20 : 50}px;
+
   align-self: flex-start;
   margin-left: 15%;
 `;

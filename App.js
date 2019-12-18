@@ -1,6 +1,8 @@
 import React from "react";
+import { StatusBar } from 'react-native'
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import FlashMessage from 'react-native-flash-message'
 
 import "./src/config/ReactotronConfig";
 
@@ -13,7 +15,9 @@ function App() {
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <Index />
+            <StatusBar barStyle="light-content" backgroundColor="blue"/>
+            <Index />
+            <FlashMessage position="top"/>
         </PersistGate>
       </Provider>
     </>

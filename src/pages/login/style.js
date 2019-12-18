@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import {Platform} from 'react-native'
+import {ifIphoneX} from 'react-native-iphone-x-helper'
 
 export const Background = styled.ImageBackground`
   flex: 1;
@@ -70,4 +71,5 @@ export const CadastrarText = styled.Text`
   font-size: 13px;
   font-weight: bold;
   margin-top: ${Platform.OS === 'ios' ? 40 : 120}px;
+  margin-top: ${() => ifIphoneX() ? 50 : 120 }px;
 `;

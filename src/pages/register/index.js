@@ -39,7 +39,7 @@ function Register({ navigation }) {
   }
 
   function handleCadastrar() {
-    dispatch(signUpRequest(name, email, password));
+    // dispatch(signUpRequest(name, email, password));
 
     setTimeout(() => {
       navigation.navigate("Login");

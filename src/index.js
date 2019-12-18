@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import FlashMessage from 'react-native-flash-message'
 
 import createRouter from "./routes";
 
