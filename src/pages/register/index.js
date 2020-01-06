@@ -30,7 +30,7 @@ function Register({ navigation }) {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -39,7 +39,7 @@ function Register({ navigation }) {
   }
 
   function handleCadastrar() {
-    // dispatch(signUpRequest(name, email, password));
+    dispatch(signUpRequest(username, email, password));
 
     setTimeout(() => {
       navigation.navigate("Login");
@@ -62,8 +62,8 @@ function Register({ navigation }) {
             <FontAwesome name="user-o" size={16} color="#000" />
             <Input
               placeholder="Seu Nome"
-              value={name}
-              onChangeText={setName}
+              value={username}
+              onChangeText={setUsername}
               placeholderTextColor="#000"
             />
           </FormInput>

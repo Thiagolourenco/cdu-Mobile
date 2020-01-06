@@ -1,6 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Icon from "@expo/vector-icons/MaterialIcons";
-import {SafeAreaView, Picker, Modal, TouchableOpacity, Text} from 'react-native'
+import {
+  SafeAreaView,
+  Picker,
+  Modal,
+  TouchableOpacity,
+  Text
+} from "react-native";
 
 import background from "../../../assets/background.png";
 import {
@@ -15,59 +21,81 @@ import {
   ButtonSelectPicker
 } from "./style";
 
+import api from "../../../services/api";
+
 export default function Cadastro({ navigation }) {
-  const [name, setName] = useState('');
-  const [dateNasc, setDateNasc] = useState(new Date());
-  const [curso, setCurso] = useState('');
-  const [faculdade, setFaculdade] = useState('');
-  const [turno, setTurno] = useState('');
+  const [name_complete, setNameComplete] = useState("");
+  const [birthdate, setBirthdate] = useState("");
+  const [course, setCourse] = useState("");
+  const [college, setCollege] = useState("");
+  const [shift, setShift] = useState("");
   const [visible, setVisible] = useState(false);
+  const [cpf, setCpf] = useState("22355588720");
 
-  function handleDocument() {
-    const data =  { name, dateNasc, curso, faculdade, turno };
+  async function handleDocument() {
+    // const data = { name_complete, birthdate, course, college, shift };
+    // await api
+    //   .post("documents_folk", {
+    //     name_complete,
+    //     birthdate,
+    //     course,
+    //     college,
+    //     shift,
+    //     cpf
+    //   })
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err));
+    navigation.navigate("DadosDoc", {
+      name_complete,
+      birthdate,
+      course,
+      college,
+      shift
+    });
 
-    navigation.navigate("DadosDoc");
-
-    // Realizar cadastro das informacoes dos usuario, sem passar os parametros 
+    // Realizar cadastro das informacoes dos usuario, sem passar os parametros
     // com os dados dos inputs
   }
 
   function handleVisible() {
-    setVisible(true)
+    setVisible(true);
   }
 
   return (
     <Background source={background}>
       <Container behavior="padding">
-      <SafeAreaView style={{ justifyContent: "center", alignItems: "center", alignSelf: "stretch"}}>
+        <SafeAreaView
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            alignSelf: "stretch"
+          }}
+        >
+          <Title>Cadastro</Title>
+          <Content>
+            <TextButton>Nome Completo</TextButton>
+            <Input value={name_complete} onChangeText={setNameComplete} />
+            <TextButton>Data de Nascimento</TextButton>
+            <Input value={birthdate} onChangeText={setBirthdate} />
+            <TextButton>Curso</TextButton>
+            <Input value={course} onChangeText={setCourse} />
+            <TextButton>Faculdade</TextButton>
+            <Input value={college} onChangeText={setCollege} />
+            <TextButton>Turno</TextButton>
+            <Input value={shift} onChangeText={setShift} />
 
-        <Title>Cadastro</Title>
-        <Content>
-          <TextButton>Nome Completo</TextButton>
-          <Input placeholder="Nome Completo" value={name} onChangeText={setName}/>
-          <TextButton>Data de Nascimento</TextButton>
-          <Input value={dateNasc} onChangeText={setDateNasc}/>
-          <TextButton>Curso</TextButton>
-          <Input value={curso} onChangeText={setCurso}/>
-          <TextButton>Faculdade</TextButton>
-          <Input value={faculdade} onChangeText={setFaculdade}/>
-          <TextButton >Turno</TextButton>
-          {/* <Input value={turno} onChangeText={setTurno}/> */}
-
-            <SelectPicker
+            {/* <SelectPicker
               selectedValue={turno}
-              onValueChange={(itemValue, itemIndex) => 
-                setTurno(itemValue)
-              }
+              onValueChange={(itemValue, itemIndex) => setTurno(itemValue)}
             >
               <Picker.Item label="Manha" value="manha" />
-              <Picker.Item label="Tarde" value="tarde"/>
-              <Picker.Item label="Noite" value="noite"/>
-            </SelectPicker>
-        </Content>
-        <ButtonAdd onPress={handleDocument}>
-          <Icon name="keyboard-arrow-right" color="#fff" size={40} />
-        </ButtonAdd>
+              <Picker.Item label="Tarde" value="tarde" />
+              <Picker.Item label="Noite" value="noite" />
+            </SelectPicker> */}
+          </Content>
+          <ButtonAdd onPress={handleDocument}>
+            <Icon name="keyboard-arrow-right" color="#fff" size={40} />
+          </ButtonAdd>
         </SafeAreaView>
       </Container>
     </Background>

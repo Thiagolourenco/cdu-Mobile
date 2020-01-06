@@ -1,6 +1,6 @@
 import { Alert } from "react-native";
 import { all, takeLatest, call, put, take } from "redux-saga/effects";
-import {showMessage} from 'react-native-flash-message'
+import { showMessage } from "react-native-flash-message";
 
 import { signInSuccess, signFailure } from "./actions";
 
@@ -12,23 +12,25 @@ export function* signIn({ payload }) {
 
     const response = yield call(api.post, "sessions", { email, password });
 
-    const { token, user } = response.data;
+    const { token } = response.data;
+    console.log(token);
+    // console.log(username);
+    // if (username.admin) {
+    //   showMessage({
+    //     message: "Erro ao Efetuar Login",
+    //     description: "Verificar os dados informados",
+    //     type: "danger"
+    //   });
+    //   return;
+    // }
 
-    if (user.provider) {
-      showMessage({
-        message: "Erro ao Efetuar Login", 
-        description: "Verificar os dados informados",
-        type: "danger"
-      })
-      return;
-    }
+    // api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
-
-    yield put(signInSuccess(token, user));
+    yield put(signInSuccess(token));
 
     // history.push('/dashboard');
   } catch (err) {
+    console.log(err);
     showMessage({
       message: "Falha na autenticaçao",
       description: "Houve um erro no login, verifique seus dados",
@@ -40,16 +42,18 @@ export function* signIn({ payload }) {
 }
 
 export function* signUp({ payload }) {
+  console.log(payload);
   try {
-    const { name, email, password } = payload;
+    const { username, email, password } = payload;
 
-      yield call(api.post, "users", { name, email, password });
+    yield call(api.post, "users", { username, email, password });
 
     showMessage({
       message: " Cadastro realizado com sucesso",
       type: "success"
-    })
+    });
   } catch (err) {
+    console.log(err);
     showMessage({
       message: "Erro no Cadastro",
       description: "Verifique seus dados, e-mail pode já existir",
@@ -67,12 +71,12 @@ export function* forgotPassword({ payload }) {
     showMessage({
       message: "E-mail de recuperacao de senha, foi enviada com sucesso",
       type: "success"
-    })
+    });
   } catch (err) {
     showMessage({
       message: "Houve um erro ao enviar um e-mail",
       type: "danger"
-    })
+    });
     yield put(signFailure());
   }
 }
