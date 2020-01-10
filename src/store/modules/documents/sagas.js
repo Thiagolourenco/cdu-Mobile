@@ -6,11 +6,10 @@ import api from "../../../services/api";
 
 export function* documentFolk({ payload }) {
   try {
-    console.log(payload);
-    const { namecomplete, birthdate, course, college, shift, cpf } = payload;
+    const { name_complete, birthdate, course, college, shift, cpf } = payload;
 
     yield call(api.post, "documents_folk", {
-      namecomplete,
+      name_complete,
       birthdate,
       course,
       college,
@@ -19,11 +18,10 @@ export function* documentFolk({ payload }) {
     });
 
     showMessage({
-      message: " Cadastro Dos Documento realizado",
+      message: " Cadastro Dos Documento realizado, aguarde confirmação ",
       type: "success"
     });
   } catch (err) {
-    console.log(err);
     showMessage({
       message: "Erro no Cadastro",
       description: "Verifique seus dados, e-mail pode já existir",

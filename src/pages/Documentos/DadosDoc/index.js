@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, ActivityIndicator } from "react-native";
 import Icon from "@expo/vector-icons/MaterialIcons";
 import * as DocumentPicker from "expo-document-picker";
 import { useDispatch } from "react-redux";
@@ -29,6 +29,7 @@ function Documentacao({ navigation }) {
   const [doc, setDoc] = useState([]);
   const [gradeDoc, setGradeDoc] = useState([]);
   const [cpf, setCpf] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // Parametros passado pelo react-navigation
   const name_complete = navigation.getParam("name_complete");
@@ -53,25 +54,25 @@ function Documentacao({ navigation }) {
     setGradeDoc(response);
   }
 
-  async function handleConcluirCadastro() {
-    // const { name_complete, birthdate, college, course, shift } = data;
-    await api
-      .post("documents_folk", {
+  function handleConcluirCadastro() {
+    // Dispatch para conectar as actions do Redux
+    setLoading(true);
+
+    dispatch(
+      documentsFolkRequest(
         name_complete,
         birthdate,
         course,
         college,
         shift,
         cpf
-      })
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-    // sole.log(err));
-    // dispatch(
-    //   documentsFolkRequest(namecomplete, birthdate, course, college, shift, cpf)
-    // );
-    // Criar o Controller para upload de arquivos e da informacao do
-    // CPF e cadastrar os uploads.https://source.unsplash.com/random/400x200
+      )
+    );
+
+    setTimeout(() => {
+      setLoading(false);
+      navigation.navigate("Home");
+    }, 3000);
   }
 
   return (
@@ -100,7 +101,11 @@ function Documentacao({ navigation }) {
           <TextButton>CPF</TextButton>
           <Input keyboardType="numeric" value={cpf} onChangeText={setCpf} />
           <ButtonFinalizar onPress={handleConcluirCadastro}>
-            <ButtonTextFinal>FINALIZAR</ButtonTextFinal>
+            {loading ? (
+              <ActivityIndicator size="small" color="#fff" />
+            ) : (
+              <ButtonTextFinal>FINALIZAR</ButtonTextFinal>
+            )}
           </ButtonFinalizar>
         </Content>
       </Container>

@@ -1,5 +1,5 @@
 export function documentsFolkRequest(
-  namecomplete,
+  name_complete,
   birthdate,
   course,
   college,
@@ -8,7 +8,7 @@ export function documentsFolkRequest(
 ) {
   return {
     type: "@documents/DOCUMENTS_FOLKS_REQUEST",
-    payload: { namecomplete, birthdate, course, college, shift, cpf }
+    payload: { name_complete, birthdate, course, college, shift, cpf }
   };
 }
 
